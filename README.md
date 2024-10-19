@@ -1,7 +1,6 @@
-# SpringCloudMicroServicesEureka
+# Spring Cloud Microservices With Eureka
 
 
-# Cooperative Microservices System
 
 ## Overview
 
@@ -69,10 +68,10 @@ Acts as a composite service that:
 ## Local Setup and Configuration
 
 Since there is no service discovery mechanism implemented, the microservices will run locally with hard-coded ports for communication. The ports used for each service are:
-- **Product Service**: `localhost:8081`
-- **Review Service**: `localhost:8082`
-- **Recommendation Service**: `localhost:8083`
-- **Product Composite Service**: `localhost:8080`
+- **Product Service**: `localhost:7001`
+- **Review Service**: `localhost:7002`
+- **Recommendation Service**: `localhost:7003`
+- **Product Composite Service**: `localhost:7000`
 
 ### Steps to Run the Project Locally
 
@@ -80,11 +79,13 @@ Since there is no service discovery mechanism implemented, the microservices wil
    ```bash
    git clone <repository-url>
 2. Set up the MySQL database for each service and update the application properties with your database configuration:
-   ```bash **properties.application**
+   ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/productservice
    spring.datasource.username=root
    spring.datasource.password=yourpassword
+
 3. Run each microservice individually using:
+
    ```bash 
    mvn spring-boot:run
 4. Access the APIs through the following endpoints:
@@ -93,6 +94,35 @@ Since there is no service discovery mechanism implemented, the microservices wil
 - Review Service: http://localhost:7002/api/reviews/{reviewId}
 - Recommendation Service: http://localhost:7003/api/recommendations/{recommendationId}
 - Product Composite Service: http://localhost:7000/api/products/{productId}
+5.Set Up `Eureka`
+
+**Eureka** is a service discovery tool for microservices. It allows services to register themselves at runtime as they come up, and to discover other services to call them. Here’s how to set up Eureka in your Spring Boot application.
+
+- Add Dependencies
+
+In your `pom.xml` (if you are using Maven), add the following dependencies:
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+</dependency>
+Make sure to also include the Spring Cloud dependencies in your pom.xml:
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Hoxton.SR12</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+- Add Annotations to Server Application class.
+```java
+@EnableEurekaServer
 
 ### Future Enhancements
 
