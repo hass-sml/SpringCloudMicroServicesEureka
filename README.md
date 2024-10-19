@@ -89,12 +89,12 @@ Since there is no service discovery mechanism implemented, the microservices wil
    mvn spring-boot:run
 4. Access the APIs through the following endpoints:
 
-Product Service: http://localhost:7001/api/products/{productId}
-Review Service: http://localhost:7002/api/reviews/{reviewId}
-Recommendation Service: http://localhost:7003/api/recommendations/{recommendationId}
-Product Composite Service: http://localhost:7000/api/products/{productId}
+- Product Service: http://localhost:7001/api/products/{productId}
+- Review Service: http://localhost:7002/api/reviews/{reviewId}
+- Recommendation Service: http://localhost:7003/api/recommendations/{recommendationId}
+- Product Composite Service: http://localhost:7000/api/products/{productId}
 
 ### Future Enhancements
 
--Circuit Breaker: Add Hystrix or Resilience4j for better fault tolerance.
--Docker Compose: Add a Docker Compose file to easily set up and manage all microservices together.
+- Circuit Breaker: Add Hystrix or Resilience4j for better fault tolerance.
+- Docker Compose: Add a Docker Compose file to easily set up and manage all microservices together.
