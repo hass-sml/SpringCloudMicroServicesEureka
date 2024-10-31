@@ -1,6 +1,5 @@
 package dev.kenmasml.productservice.dto.responses;
 
-import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -10,6 +9,5 @@ public class ProductResponse {
     private long productId;
     private String name;
     private double weight;
-    private RecommendationResponse recommendationResponse;
-    private ReviewResponse reviewResponse;
+
 }

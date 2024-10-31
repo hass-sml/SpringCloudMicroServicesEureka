@@ -8,6 +8,8 @@ import org.chaimaa.reviewservice.dto.responses.ReviewResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,14 +47,20 @@ public class ReviewServiceImpl implements ReviewService {
         }
         return reviewResponse;
     }
+    public List<ReviewResponse> getReviewsByProductId(long productId) {
+        List<ReviewResponse> reviewResponse = new ArrayList<>();
+        List<Review> reviews = reviewDao.getReviewsByProductId(productId);
+        for(Review review : reviews){
+            ReviewResponse rev = new ReviewResponse();
+            rev.setReviewId(review.getReviewId());
+            rev.setSubject(review.getSubject());
+            rev.setContent(review.getContent());
+            rev.setAuthor(review.getAuthor());
+            reviewResponse.add(rev);
+        }
 
-//    @Override
-//    public void updateReview() {
-//        System.out.println("sdfsdjfjn");
-//    }
-//
-//    @Override
-//    public void deleteReview() {
-//    }
+        return reviewResponse;
+    }
+
 
 }

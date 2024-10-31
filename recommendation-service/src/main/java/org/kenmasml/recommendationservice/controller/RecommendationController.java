@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -33,6 +34,12 @@ public class RecommendationController {
     @GetMapping("/{id}")
     public ResponseEntity<RecommendationResponse> getRecommendationById(@PathVariable("id") long id) {
         RecommendationResponse recommendationResponse = recommendationService.findRecommendationById(id);
+        return  ResponseEntity.ok().body(recommendationResponse);
+    }
+
+    @GetMapping("/product/{productId}")
+    public ResponseEntity<List<RecommendationResponse>> getRecommendationsByProductId(@PathVariable("productId") long productId) {
+        List<RecommendationResponse> recommendationResponse = recommendationService.getRecommendationsByProductId(productId);
         return  ResponseEntity.ok().body(recommendationResponse);
     }
 }

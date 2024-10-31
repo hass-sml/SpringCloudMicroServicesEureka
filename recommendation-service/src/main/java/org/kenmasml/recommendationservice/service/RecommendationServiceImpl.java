@@ -7,6 +7,8 @@ import org.kenmasml.recommendationservice.dto.responses.RecommendationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,5 +48,19 @@ public class RecommendationServiceImpl implements RecommendationService {
         }
 
         return recommendationResponse;
+    }
+    public List<RecommendationResponse> getRecommendationsByProductId(long productId) {
+        List<Recommendation> recommendations = recommendationDao.getRecommendationsByProductId(productId);
+        List<RecommendationResponse> recommendationResponses =  new ArrayList<>();
+
+        for(Recommendation recommendation: recommendations) {
+            RecommendationResponse recommendationResponse = new RecommendationResponse();
+            recommendationResponse.setRecommendationId(recommendation.getRecommendationId());
+            recommendationResponse.setRate(recommendation.getRate());
+            recommendationResponse.setAuthor(recommendation.getAuthor());
+            recommendationResponse.setContent(recommendation.getContent());
+            recommendationResponses.add(recommendationResponse);
+        }
+        return recommendationResponses;
     }
 }

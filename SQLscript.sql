@@ -1,13 +1,13 @@
 
 USE productservice;
 truncate products;
-INSERT INTO products (weight, recommendation_id, review_id, product_name)
+INSERT INTO products (weight, product_name)
 VALUES 
-    (1.25, 1, 3, 'Laptop Sleeve'),
-    (0.75, 2, 1, 'Wireless Mouse'),
-    (2.50, 4, 2, 'Mechanical Keyboard'),
-    (1.10, 3, 4, 'External Hard Drive'),
-    (0.90, 1, 2, 'USB-C Hub');
+    (1.25, 'Laptop Sleeve'),
+    (0.75,  'Wireless Mouse'),
+    (2.50,  'Mechanical Keyboard'),
+    (1.10,  'External Hard Drive'),
+    (0.90,  'USB-C Hub');
 
 USE reviewservice;
 truncate reviews;

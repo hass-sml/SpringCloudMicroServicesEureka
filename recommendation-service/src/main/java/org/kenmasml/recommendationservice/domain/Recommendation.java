@@ -13,7 +13,7 @@ public class Recommendation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recommendationId;
-//    private Long productId;
+    private Long productId;
     @Column(name = "author")
     private String author;
     @Column(name = "rate")

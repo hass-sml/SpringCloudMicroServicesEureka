@@ -15,6 +15,5 @@ public class Product {
     private String name;
     @Column(name = "weight")
     private double weight;
-    private long recommendationId;
-    private long reviewId;
+
 }

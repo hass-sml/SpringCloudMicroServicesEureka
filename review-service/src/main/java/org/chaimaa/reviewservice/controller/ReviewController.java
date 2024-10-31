@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -31,6 +32,11 @@ public class ReviewController {
     @GetMapping("/{id}")
     public ResponseEntity<ReviewResponse> getReview(@PathVariable("id") long id) {
         ReviewResponse reviewResponse = reviewService.getReviewById(id);
+        return  ResponseEntity.ok().body(reviewResponse);
+    }
+    @GetMapping("/product/{id}")
+    public ResponseEntity<List<ReviewResponse>> getReviewsByProductId(@PathVariable("id") long productId) {
+        List<ReviewResponse> reviewResponse = reviewService.getReviewsByProductId(productId);
         return  ResponseEntity.ok().body(reviewResponse);
     }
 }
