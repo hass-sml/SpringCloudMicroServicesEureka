@@ -11,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EntityScan("dev.kenmasml.productservice.domain")
 @EnableFeignClients("dev.kenmasml.productservice.clients")
 
-public class ProductCompositeServiceApplication {
+public class
+ProductCompositeServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ProductCompositeServiceApplication.class, args);

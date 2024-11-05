@@ -9,4 +9,7 @@ public class RecommendationResponse {
     private String author;
     private int rate;
     private String content;
+
+    public RecommendationResponse(long id, String defaultRecommendation, String defaultContent) {
+    }
 }

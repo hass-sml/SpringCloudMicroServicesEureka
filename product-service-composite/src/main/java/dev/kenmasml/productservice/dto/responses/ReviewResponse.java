@@ -14,4 +14,7 @@ public class ReviewResponse {
     private String author;
     private String subject;
     private String content;
+
+    public ReviewResponse(long id, String defaultReviewer, String defaultReviewContent) {
+    }
 }

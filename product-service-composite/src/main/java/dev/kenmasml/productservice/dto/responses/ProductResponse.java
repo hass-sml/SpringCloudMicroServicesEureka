@@ -7,4 +7,7 @@ public class ProductResponse {
     private long productId;
     private String name;
     private double weight;
+
+    public ProductResponse(long id, String defaultProduct, String noDescriptionAvailable) {
+    }
 }
